@@ -1,6 +1,7 @@
+import { Item } from 'src/item/entities/item.entity';
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity()
+@Entity({ name: 'Users' })
 export class User {
   @PrimaryGeneratedColumn('increment')
   id: number;
@@ -13,4 +14,7 @@ export class User {
 
   @Column()
   createAt: Date;
+
+  @Column()
+  Item: Item[];
 }
