@@ -15,6 +15,6 @@ export class User {
   @Column()
   createAt: Date;
 
-  @Column()
-  Item: Item[];
+  // @Column()
+  // Item: Item[];
 }
