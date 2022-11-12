@@ -20,10 +20,11 @@ export class UserController {
     return this.userService.findAll();
   }
 
-  // @Post()
-  // create(@Body() createUserDto: CreateUserDto) {
-  //   return this.userService.create(createUserDto);
-  // }
+  @Post('/register')
+  create(@Body() createUserDto: CreateUserDto) {
+    const date = createUserDto.createAt ?? new Date();
+    return this.userService.create({ ...createUserDto, createAt: date });
+  }
 
   // @Get(':id')
   // findOne(@Param('id') id: string) {
