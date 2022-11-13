@@ -21,9 +21,13 @@ export class UserController {
   }
 
   @Post('/register')
-  create(@Body() createUserDto: CreateUserDto) {
+  async create(@Body() createUserDto: CreateUserDto) {
     const date = createUserDto.createAt ?? new Date();
-    return this.userService.create({ ...createUserDto, createAt: date });
+    const authResult = await this.userService.create({
+      ...createUserDto,
+      createAt: date,
+    });
+    return authResult;
   }
 
   // @Get(':id')
